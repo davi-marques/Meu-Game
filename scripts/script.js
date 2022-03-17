@@ -60,3 +60,28 @@ function move() {
     }
 }
 //
+function animation() {
+    if(left){
+        man.srcY = 48;
+    } else if(right){
+        man.srcY = 0;
+    }
+
+    if(right || left){
+        // Se movendo
+        countP = 0;
+        count++;
+        if(count >= 40){
+            count = 6;
+        }
+        man.srcX = Math.floor(count / 5) * man.width;
+    } else {
+        // Parado
+        count = 6;
+        countP++;
+        if (countP >= 60) {
+            countP = 0;
+        }
+        man.srcX = Math.floor(countP / 30) * man.width;
+    }
+}
