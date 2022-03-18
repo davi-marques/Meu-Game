@@ -65,6 +65,22 @@ function move() {
     man.posY = Math.max(70, Math.min(Height - 165, man.posY));
 }
 //
+
+
+// Gravidade
+
+function gravity() {
+    Gravity += 1;
+    man.posY += Gravity;
+
+    if (man.posY > Height - man.height*6.9){
+        man.posY = Height - man.height*6.9;
+        speed = 5;
+        Gravity = 0;
+    }
+}
+
+
 function animation() {
     if(left){
         man.srcY = 48;
