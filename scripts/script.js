@@ -4,6 +4,8 @@ const ctx = canvas.getContext('2d');
 
 Width = canvas.width = 700; // 700
 Height = canvas.height = 550; // 550
+Width = canvas.width = window.innerWidth; // 700
+Height = canvas.height = window.innerHeight-1; // 550
 
 let margem = (window.innerHeight - Height) / 2;
 canvas.style.marginTop = `${margem}px`;
