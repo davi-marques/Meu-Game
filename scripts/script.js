@@ -58,6 +58,9 @@ function move() {
     if (right) {
         man.posX += speed;
     }
+
+    man.posX = Math.max(70, Math.min(Width - 165, man.posX));
+    man.posY = Math.max(70, Math.min(Height - 165, man.posY));
 }
 //
 function animation() {
