@@ -43,6 +43,7 @@ function keysUp(e) {
         case 37: // <-
             left = false;
         break;
+let blocks = [];
 
         case 68: // ->
             right = false;
@@ -66,12 +67,14 @@ function move() {
 }
 //
 
+const man = new Man();
 
 // Gravidade
 
 function gravity() {
     Gravity += 1;
     man.posY += Gravity;
+// Funções
 
     if (man.posY > Height - man.height*6.9){
         man.posY = Height - man.height*6.9;
