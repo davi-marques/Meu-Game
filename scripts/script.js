@@ -81,9 +81,11 @@ function gravity() {
 }
 
 
+// Animação
+
 function animation() {
     if(left){
-        man.srcY = 48;
+        man.srcY = 72;
     } else if(right){
         man.srcY = 0;
     }
