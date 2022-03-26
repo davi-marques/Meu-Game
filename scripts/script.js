@@ -2,10 +2,6 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-Width = canvas.width = 700; // 700
-Height = canvas.height = 550; // 550
-Width = canvas.width = window.innerWidth; // 700
-Height = canvas.height = window.innerHeight-1; // 550
 
 let margem = (window.innerHeight - Height) / 2;
 canvas.style.marginTop = `${margem}px`;
@@ -14,12 +10,7 @@ let blocks = [];
 
 let left = right = false;
 
-function move() {
-    if (left) {
-        man.posX -= speed;
     }
-    if (right) {
-        man.posX += speed;
     }
 
     gravity() {
@@ -42,17 +33,9 @@ function move() {
 }
 const man = new Man();
 
-// Gravidade
 
-function gravity() {
-    Gravity += 1;
-    man.posY += Gravity;
 // Funções
 
-    if (man.posY > Height - man.height*6.9){
-        man.posY = Height - man.height*6.9;
-        speed = 5;
-        Gravity = 0;
 // Movimentação
 function move() {
     if (right) {
