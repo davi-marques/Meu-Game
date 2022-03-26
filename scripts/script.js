@@ -63,11 +63,24 @@ function move() {
         man.posX += speed;
     }
 
-    man.posX = Math.max(70, Math.min(Width - 165, man.posX));
-    man.posY = Math.max(70, Math.min(Height - 165, man.posY));
-}
-//
+    gravity() {
+        this.pos.y += this.speed.y;
+        this.pos.x += this.speed.x;
+        
+        if (this.pos.y + this.height <= Height+42) {
+            this.pos.y = Math.max(0, Math.min(Height+42 - this.height - this.speed.y, this.pos.y));
+            this.speed.y += Gravity;
 
+            if (this.pos.y == 0) {
+                this.speed.y = 0;
+                this.speed.y += Gravity;
+            }
+        } else {
+            this.speed.y = 0;
+        }
+        this.pos.x = Math.max(34, Math.min(Width - 106, this.pos.x));
+    }
+}
 const man = new Man();
 
 // Gravidade
