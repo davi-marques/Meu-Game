@@ -25,8 +25,12 @@ let left = right = false;
                 this.speed.y = 0;
                 this.speed.y += Gravity;
             }
-        } else {
+        } else {  // Ele caiu!
             this.speed.y = 0;
+            this.speed.x = 0;
+            this.pos.x = this.speed.x;
+            pulos = 21
+            death = true;
         }
         this.pos.x = Math.max(34, Math.min(Width - 106, this.pos.x));
     }
@@ -96,8 +100,14 @@ window.addEventListener('keydown', ( {key} ) => {
             right = true;
             break;
         case ' ':
-            man.speed.y -= 25;
-        break;
+            pulos += 20
+            if (pulos <= 20) {
+                man.speed.y -= 22.5;
+            }
+
+            // if (pulos == 30) {
+            //     man.speed.y += 5;
+            // }
     }
 }, false);
 
@@ -116,7 +126,10 @@ window.addEventListener('keyup', ( {key} ) => {
             right = false;
             break;
         case ' ':
-            man.speed.y += Gravity;
+            if (pulos < 21) {
+                pulos -= 10
+                man.speed.y += Gravity;
+            }
         break;
     }
 }, false);
