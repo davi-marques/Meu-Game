@@ -9,50 +9,9 @@ Height = canvas.height = window.innerHeight-1; // 550
 
 let margem = (window.innerHeight - Height) / 2;
 canvas.style.marginTop = `${margem}px`;
-// Movimentação
-window.addEventListener('keydown', keysDown, false);
-window.addEventListener('keyup', keysUp, false);
-function keysDown(e) {
-    let key = e.keyCode;
-    switch (key) {
-        case 65: // <-
-            left = true;
-            right = false;
-        break;
-        case 37: // <-
-            left = true;
-            right = false;
-        break;
 
-        case 68: // ->
-            left = false;
-            right = true;
-        break;
-        case 39: // ->
-            left = false;
-            right = true;
-        break;
-    }
-}
-function keysUp(e) {
-    let key = e.keyCode;
-    switch (key) {
-        case 65: // <-
-            left = false;
-        break;
-        case 37: // <-
-            left = false;
-        break;
 let blocks = [];
 
-        case 68: // ->
-            right = false;
-        break;
-        case 39: // ->
-            right = false;
-        break;
-    }
-}
 let left = right = false;
 
 function move() {
