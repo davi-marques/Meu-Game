@@ -53,6 +53,7 @@ let blocks = [];
         break;
     }
 }
+let left = right = false;
 
 function move() {
     if (left) {
@@ -80,6 +81,14 @@ function gravity() {
         man.posY = Height - man.height*6.9;
         speed = 5;
         Gravity = 0;
+// Movimentação
+function move() {
+    if (right) {
+        man.speed.x = 5;
+    } else if (left) {
+        man.speed.x = -5;
+    } else {
+        man.speed.x = 0;
     }
 }
 
@@ -111,3 +120,48 @@ function animation() {
         man.srcX = Math.floor(countP / 30) * man.width;
     }
 }
+// Teclas
+window.addEventListener('keydown', ( {key} ) => {
+    console.log(key);
+    switch (key) {
+        case 'a':
+            left = true;
+            right = false;
+            break;
+        case 'ArrowLeft':
+            left = true;
+            right = false;
+            break;
+        case 'd':
+            left = false;
+            right = true;
+            break;
+        case 'ArrowRight':
+            left = false;
+            right = true;
+            break;
+        case ' ':
+            man.speed.y -= 25;
+        break;
+    }
+}, false);
+
+window.addEventListener('keyup', ( {key} ) => {
+    switch (key) {
+        case 'a':
+            left = false;
+            break;
+        case 'ArrowLeft':
+            left = false;
+            break;
+        case 'd':
+            right = false;
+            break;
+        case 'ArrowRight':
+            right = false;
+            break;
+        case ' ':
+            man.speed.y += Gravity;
+        break;
+    }
+}, false);
