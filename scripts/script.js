@@ -86,6 +86,13 @@ function animation() {
         man.srcX = Math.floor(countP / 30) * man.width;
     }
 }
+(function update() {
+    window.requestAnimationFrame(update, canvas);
+    render();
+    move();
+    animation();
+    man.gravity();
+
     if (estadoAtual == state.perdeu) {
         ctx.fillStyle = 'rgba(0, 0, 10, 0.40)'
         ctx.fillRect(0, 0, Width, Height);
@@ -98,6 +105,7 @@ function animation() {
         ctx.font = "25px 'Press Start 2P', Arial";
         ctx.fillText('pres. Enter para reiniciar', Width/2-250, Height/2-30)
     }
+}());
 // Teclas
 window.addEventListener('keydown', ( {key} ) => {
     // console.log(key);
