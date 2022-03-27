@@ -86,6 +86,32 @@ function animation() {
         man.srcX = Math.floor(countP / 30) * man.width;
     }
 }
+// Desenha
+
+function render() {
+    ctx.clearRect(0, 0, Width, Height);
+    ctx.drawImage(bg, 0, 0, Width, Height);
+    man.draw();
+    ctx.drawImage(border, 0, 0, Width, Height);
+    ctx.imageSmoothingEnabled = false;
+
+    // Desenha os blocos
+    for(let i in blocks) {
+        let blk = blocks[i];
+
+        if (blk.visible) {
+            ctx.fillStyle = blk.color;
+            ctx.fillRect(blk.pos.x, blk.pos.y, blk.width, blk.height);
+        }
+
+        blk.solid();
+    }
+}
+
+
+
+// Fluxo do jogo
+
 (function update() {
     window.requestAnimationFrame(update, canvas);
     render();
