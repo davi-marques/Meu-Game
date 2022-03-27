@@ -127,6 +127,15 @@ window.addEventListener('keydown', ( {key} ) => {
             // if (pulos == 30) {
             //     man.speed.y += 5;
             // }
+            break;
+        case 'Enter':
+            if (estadoAtual == state.perdeu) {
+                estadoAtual = state.jogando;
+                man.srcY = 72;
+                man.pos.y = 120;
+                man.pos.x = 1230;
+            }
+            break;
     }
 }, false);
 
