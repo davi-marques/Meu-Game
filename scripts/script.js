@@ -32,7 +32,32 @@ manImg.src = 'images/man.png';
 const border = new Image();
 border.src = 'images/border.png';
 
+// Propiedades do personagem
+class Man {
+    constructor() {
+        this.pos = {
+            x: 1230,
+            y: 120, // 488
+        }
+        this.srcX = 0;
+        this.srcY = 72;
+
+        this.width = 72;
+        this.height = 72;
+
+        this.posIni = {
+            x: 1230,
+            y: 120,
+        }
+
+        this.speed = {
+            x: 0,
+            y: 1,
+        }
     }
+
+    draw() {
+        ctx.drawImage(manImg, this.srcX, this.srcY, this.width, this.height, this.pos.x, this.pos.y, this.width, this.height);
     }
 
     gravity() {
