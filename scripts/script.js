@@ -86,6 +86,18 @@ function animation() {
         man.srcX = Math.floor(countP / 30) * man.width;
     }
 }
+    if (estadoAtual == state.perdeu) {
+        ctx.fillStyle = 'rgba(0, 0, 10, 0.40)'
+        ctx.fillRect(0, 0, Width, Height);
+
+        // Escrevena tela que morreu
+        ctx.fillStyle = '#fff'
+        ctx.font = "35px 'Press Start 2P', Arial";
+        ctx.fillText('Você morreu!', Width/2-200, Height/2-170);
+        
+        ctx.font = "25px 'Press Start 2P', Arial";
+        ctx.fillText('pres. Enter para reiniciar', Width/2-250, Height/2-30)
+    }
 // Teclas
 window.addEventListener('keydown', ( {key} ) => {
     // console.log(key);
