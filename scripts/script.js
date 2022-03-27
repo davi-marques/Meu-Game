@@ -37,6 +37,7 @@ let estadoAtual = state.jogando;
             this.pos.x = this.speed.x;
             pulos = 21
             death = true;
+            estadoAtual = state.perdeu;
         }
         this.pos.x = Math.max(34, Math.min(Width - 106, this.pos.x));
     }
