@@ -20,6 +20,18 @@ const state = {
     perdeu: 'perdeu',
 }
 let estadoAtual = state.jogando;
+
+
+// Imagens
+const bg = new Image();
+bg.src = 'images/scene.png';
+
+const manImg = new Image();
+manImg.src = 'images/man.png';
+
+const border = new Image();
+border.src = 'images/border.png';
+
     }
     }
 
