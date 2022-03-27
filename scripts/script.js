@@ -10,6 +10,12 @@ let blocks = [];
 
 let left = right = false;
 
+// Estado do jogo
+const state = {
+    jogando: 'jogando',
+    perdeu: 'perdeu',
+}
+let estadoAtual = state.jogando;
     }
     }
 
