@@ -8,7 +8,11 @@ canvas.style.marginTop = `${margem}px`;
 
 let blocks = [];
 
-let left = right = false;
+let left = right = false,
+count = 0,
+countP = 0,
+pulos = 0,
+Gravity = 1.5;
 
 // Estado do jogo
 const state = {
