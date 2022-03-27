@@ -81,7 +81,7 @@ function animation() {
 }
 // Teclas
 window.addEventListener('keydown', ( {key} ) => {
-    console.log(key);
+    // console.log(key);
     switch (key) {
         case 'a':
             left = true;
