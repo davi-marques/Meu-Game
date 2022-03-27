@@ -35,8 +35,7 @@ let estadoAtual = state.jogando;
             this.speed.y = 0;
             this.speed.x = 0;
             this.pos.x = this.speed.x;
-            pulos = 21
-            death = true;
+            pulos = 21;
             estadoAtual = state.perdeu;
         }
         this.pos.x = Math.max(34, Math.min(Width - 106, this.pos.x));
@@ -57,6 +56,7 @@ function move() {
         man.speed.x = 0;
     }
 }
+
 
 
 // Animação
@@ -86,6 +86,9 @@ function animation() {
         man.srcX = Math.floor(countP / 30) * man.width;
     }
 }
+
+
+
 // Desenha
 
 function render() {
@@ -132,6 +135,9 @@ function render() {
         ctx.fillText('pres. Enter para reiniciar', Width/2-250, Height/2-30)
     }
 }());
+
+
+
 // Teclas
 window.addEventListener('keydown', ( {key} ) => {
     // console.log(key);
