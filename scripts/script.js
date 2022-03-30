@@ -11,6 +11,7 @@ let blocks = [];
 let left = right = false,
 count = 0,
 countP = 0,
+countJ = 0,
 pulos = 0,
 Gravity = 1.5;
 
@@ -27,11 +28,48 @@ let estadoAtual = state.jogando;
 const bg = new Image();
 bg.src = 'images/scene.png';
 
+const joiaImg = new Image();
+joiaImg.src = 'images/joia-sprite.png';
+
 const manImg = new Image();
 manImg.src = 'images/man.png';
 
 const border = new Image();
 border.src = 'images/border.png';
+
+
+// Propiedades da jóia
+class Joia {
+    constructor() {
+        this.pos = {
+            x: 105,
+            y: 245
+        }
+        this.srcX = 0;
+        this.srcY = 0;
+
+        this.width = 48;
+        this.height = 52;
+
+        this.pega = false;
+    }
+
+    draw() {
+        if (!this.pega) {
+            ctx.drawImage(joiaImg, this.srcX, this.srcY, this.width, this.height, this.pos.x, this.pos.y, 54, 60);
+        }
+    }
+
+    animation() {
+        countJ++;
+        if(countJ >= 80){
+            countJ = 0;
+        }
+        this.srcX = Math.floor(countJ / 8) * this.width;
+    }
+}
+const joia = new Joia();
+
 
 // Propiedades do personagem
 class Man {
@@ -137,6 +175,7 @@ function render() {
     ctx.clearRect(0, 0, Width, Height);
     ctx.drawImage(bg, 0, 0, Width, Height);
     man.draw();
+    joia.draw();
     ctx.drawImage(border, 0, 0, Width, Height);
     ctx.imageSmoothingEnabled = false;
 
@@ -211,7 +250,8 @@ window.addEventListener('keydown', ( {key} ) => {
             // }
             break;
         case 'Enter':
-            if (estadoAtual == state.perdeu) {
+            if (estadoAtual == state.perdeu || estadoAtual == state.ganhou) {
+                joia.pega = false;
                 estadoAtual = state.jogando;
                 man.srcY = 72;
                 man.pos.y = 120;
