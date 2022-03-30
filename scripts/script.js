@@ -18,6 +18,7 @@ Gravity = 1.5;
 const state = {
     jogando: 'jogando',
     perdeu: 'perdeu',
+    ganhou: 'ganhou'
 }
 let estadoAtual = state.jogando;
 
