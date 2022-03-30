@@ -120,6 +120,20 @@ class Man {
         }
         this.pos.x = Math.max(34, Math.min(Width - 106, this.pos.x));
     }
+
+    joiaPega(){
+        if (this.pos.x+21 <= joia.pos.x + joia.width && this.pos.x-21 + this.width >= joia.pos.x && this.pos.y + this.height >= joia.pos.y && this.pos.y <= joia.pos.y + joia.height){
+            // setTimeout(() => {
+            //     estadoAtual = state.ganhou;
+            // }, 600);
+            
+            joia.pega = true;
+            estadoAtual = state.ganhou;
+
+            // ctx.font = '30px Arial'
+            // ctx.fillText('peguei', 100, 100)
+        }
+    }
 }
 const man = new Man();
 
