@@ -99,6 +99,32 @@ class Man {
         ctx.drawImage(manImg, this.srcX, this.srcY, this.width, this.height, this.pos.x, this.pos.y, this.width, this.height);
     }
 
+    animation() {
+        if(left){
+            this.srcY = 72;
+        } else if(right){
+            this.srcY = 0;
+        }
+    
+        if(right || left){
+            // Se movendo
+            countP = 0;
+            count++;
+            if(count >= 40){
+                count = 6;
+            }
+            this.srcX = Math.floor(count / 5) * this.width;
+        } else {
+            // Parado
+            count = 6;
+            countP++;
+            if (countP >= 60) {
+                countP = 0;
+            }
+            this.srcX = Math.floor(countP / 30) * this.width;
+        }
+    }
+
     gravity() {
         this.pos.y += this.speed.y;
         this.pos.x += this.speed.x;
@@ -150,37 +176,6 @@ function move() {
         man.speed.x = 0;
     }
 }
-
-
-
-// Animação
-
-function animation() {
-    if(left){
-        man.srcY = 72;
-    } else if(right){
-        man.srcY = 0;
-    }
-
-    if(right || left){
-        // Se movendo
-        countP = 0;
-        count++;
-        if(count >= 40){
-            count = 6;
-        }
-        man.srcX = Math.floor(count / 5) * man.width;
-    } else {
-        // Parado
-        count = 6;
-        countP++;
-        if (countP >= 60) {
-            countP = 0;
-        }
-        man.srcX = Math.floor(countP / 30) * man.width;
-    }
-}
-
 
 
 // Desenha
